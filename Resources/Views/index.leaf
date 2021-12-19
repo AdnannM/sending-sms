@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Send a text message</title>
   </head>
-
+  
   <body>
     <h1>Send a text message using the Vonage Messages API</h1>
 
@@ -14,7 +14,7 @@
 
     <form action="/send" method="post">
         <p>
-        <label>Phone number E.g. 003876000000</label><br>
+        <label>Phone number E.g. 003876 000-000</label><br>
         <input type="text" name="to">
         </p>
 
@@ -22,7 +22,7 @@
         <label>Text message</label><br>
         <textarea name="text"> </textarea>
         </p>
-        <button type="submit">Send text</button>
+        <button type="SEND">Send text</button>
     </form>
   </body>
 </html>

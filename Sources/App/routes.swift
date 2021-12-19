@@ -1,5 +1,29 @@
 import Vapor
 
+struct Input: Content {
+    let to: String
+    let text: String
+    let from = "Swift"
+    let channel = "sms"
+    let messageType = "text"
+
+    private enum CodingKeys: String, CodingKey {
+        case to
+        case text
+        case from
+        case channel
+        case messageType = "message_type"
+    }
+}
+
+struct Response: Content {
+    let messageId: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case messageId = "message_uuid"
+    }
+}
+
 func routes(_ app: Application) throws {
     app.get { req in
         return req.view.render("index")
@@ -32,26 +56,3 @@ func routes(_ app: Application) throws {
     }
 }
 
-struct Input: Content {
-    let to: String
-    let text: String
-    let from = "Swift"
-    let channel = "sms"
-    let messageType = "text"
-
-    private enum CodingKeys: String, CodingKey {
-        case to
-        case text
-        case from
-        case channel
-        case messageType = "message_type"
-    }
-}
-
-struct Response: Content {
-    let messageId: String
-    
-    private enum CodingKeys: String, CodingKey {
-        case messageId = "message_uuid"
-    }
-}
