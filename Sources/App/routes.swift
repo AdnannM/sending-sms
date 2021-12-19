@@ -18,7 +18,6 @@ func routes(_ app: Application) throws {
                     )
                     req.headers.basicAuthorization = auth
                 }
-                
                 let messageResponse = try clientResponse.content.decode(Response.self)
                 
                 return try await req.view.render(
@@ -29,7 +28,7 @@ func routes(_ app: Application) throws {
         }
     } else {
         // Fallback on earlier versions
-        print("Must use iOS 15")
+        print("You must you iOS 15")
     }
 }
 
